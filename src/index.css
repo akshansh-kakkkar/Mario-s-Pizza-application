@@ -3,3 +3,23 @@
 .noto-serif{
     font-family: "Noto Serif", serif;
 }
+.noto2-serif{
+    font-family: "Noto Serif", serif;
+    font-style: italic;
+}
+
+.man-rope{
+    font-family: "Manrope", sans-serif;
+    font-style: italic;
+}
+.man2-rope{
+    font-family: "Manrope", sans-serif;
+    font-weight: 100;
+
+}
+
+.man3-rope{
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+
+}

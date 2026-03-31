@@ -1,11 +1,22 @@
 import React, { useState } from "react";
 import "../index.css";
+import { useNavigate } from "react-router-dom";
 const RegistrationForm = () => {
+  const Navigate = useNavigate();
   const [gender, setGender] = useState("");
   return (
     <>
-      <div className="text-[#154212] font-bold tracking-widest flex noto2-serif justify-center items-center p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
-        Registration Form
+      <div className="text-[#154212] font-bold tracking-widest flex items-center justify-between p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
+        <div onClick={()=>Navigate('/')} className="flex justify-start hover:scale-[112%] transition-all duration-300 ">
+          <img className="backdrop-blur-2xl drop-shadow-sm" src="/back(1).png" alt="back" width={40} />
+        </div>
+        <div className=" gap-4 flex noto2-serif justify-center items-center"><span><lord-icon
+            src="https://cdn.lordicon.com/shcfcebj.json"
+            trigger="loop"
+            delay="300"
+            colors="primary:#629110,secondary:#0a5c15"
+            style={{ width: 50, height:50}}
+          ></lord-icon></span>Registration Form</div>
       </div>
       <div className="grid grid-cols-2 gap-4 justify-center items-center mt-12 ml-12">
         <div className="col-span-1">
@@ -147,10 +158,10 @@ const RegistrationForm = () => {
                 </p>
               </div>
               <div className=" flex gap-4 mt-3 items-center mb-4 text-center">
-                <button className="man-rope py-3 px-6 flex justify-center font-medium bg-[#154212] rounded-md text-[#FFF8EF]">
+                <button  onClick={()=>{Navigate('/registered')}} className="man-rope py-3 px-6 flex justify-center font-medium bg-[#154212] rounded-md text-[#FFF8EF]">
                   Complete My Invitation
                 </button>
-                <button className="man-rope py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline">
+                <button onClick={()=>{Navigate('/orderform')}} className="man-rope py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline">
                  Already a customer?
                 </button>
               </div>

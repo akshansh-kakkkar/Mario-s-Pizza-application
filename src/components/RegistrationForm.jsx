@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 const RegistrationForm = () => {
+  const [gender, setGender] = useState('')
   return (
     <>
       <div className="text-[#154212] font-bold tracking-widest flex noto2-serif justify-center items-center p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
@@ -47,10 +48,90 @@ const RegistrationForm = () => {
                 <img src="./calendar.png" width={20} alt="fork-knife" />
               </span>
               <span className="text-[#154212] text-sm tracking-widest man-rope capitalize">
-               Invitations only Masterclass
+                Invitations only Masterclass
               </span>
             </div>
           </div>
+        </div>
+        <div className="col-span-1 bg-[#FBF3E4] w-[600px] h-[600px] relative backdrop-blur-2xl drop-shadow-sm">
+          <div className=" absolute top-0 right-0 bg-[#154212] opacity-5 w-[100px] h-[100px]"></div>
+
+          <form action="">
+            <div className="grid grid-cols-2 mt-7">
+              <div className="col-span-1 flex flex-col mx-6 gap-4 ">
+                <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="GIOVANNI"
+                  className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                />
+              </div>
+              <div className="col-span-1 flex flex-col mr-6 gap-4">
+                <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="ROSSI"
+                  className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col mx-6 gap-4">
+              <label
+                htmlFor=""
+                className="man3-rope text-[#42493E] text-md mt-8 "
+              >
+                Email Address
+              </label>
+              <input
+                type="email"
+                placeholder="GIOVANNIROSSI@GMAIL.COM"
+                className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+              />
+            </div>
+            <div className="flex flex-col mx-6 gap-4">
+              <label
+                htmlFor=""
+                className="man3-rope text-[#42493E] text-md mt-3 "
+              >
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                placeholder="1234567890"
+                className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+              />
+            </div>
+            <div className="flex flex-col mx-6 gap-4">
+              <label
+                htmlFor=""
+                className="man3-rope text-[#42493E] text-md mt-3"
+              >
+                Create Password
+              </label>
+              <input
+                type="tel"
+                placeholder="••••••••"
+                className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+              />
+            </div>
+            <div className="flex flex-col mx-6 gap-4">
+              <label
+                htmlFor=""
+                className="man3-rope text-[#42493E] text-md mt-3"
+              >
+                Preffered Title
+              </label>
+              <div className="flex gap-4">
+                {["Signore", "Signore", "Neutro"].map((item)=>(
+                  <button>{item}</button>
+                ))}
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </>

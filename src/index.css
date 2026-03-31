@@ -1,5 +1,32 @@
 @import "tailwindcss";
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #FBF3E4 inset !important;
+  -webkit-text-fill-color: #1E1B13 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
 
+::-webkit-scrollbar-track {
+  background: #FBF3E4;
+  width: 2px;
+
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(21, 66, 18, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  ;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(21, 66, 18, 0.6);
+  
+}
 .noto-serif{
     font-family: "Noto Serif", serif;
 }

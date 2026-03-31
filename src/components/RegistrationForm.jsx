@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 const RegistrationForm = () => {
-  const [gender, setGender] = useState('')
+  const [gender, setGender] = useState("");
   return (
     <>
       <div className="text-[#154212] font-bold tracking-widest flex noto2-serif justify-center items-center p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
@@ -53,7 +53,7 @@ const RegistrationForm = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 bg-[#FBF3E4] w-[600px] h-[600px] relative backdrop-blur-2xl drop-shadow-sm">
+        <div className="col-span-1 bg-[#FBF3E4] overflow-y-scroll w-[600px] h-[600px] relative backdrop-blur-2xl drop-shadow-sm">
           <div className=" absolute top-0 right-0 bg-[#154212] opacity-5 w-[100px] h-[100px]"></div>
 
           <form action="">
@@ -89,7 +89,7 @@ const RegistrationForm = () => {
               <input
                 type="email"
                 placeholder="GIOVANNIROSSI@GMAIL.COM"
-                className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
             </div>
             <div className="flex flex-col mx-6 gap-4">
@@ -126,9 +126,33 @@ const RegistrationForm = () => {
                 Preffered Title
               </label>
               <div className="flex gap-4">
-                {["Signore", "Signore", "Neutro"].map((item)=>(
-                  <button>{item}</button>
+                {["Signore", "Signora", "Neutro"].map((item) => (
+                  <button
+                    className={`px-6 py-2 rounded-xl border man-rope font-medium transition-all duration-200 ${
+                      gender === item
+                        ? "bg-[#154212] text-[#1E1B13] border-[#154212]"
+                        : "bg-[#EDE6D8] text-[#1E1B13] border-transparent"
+                    }`}
+                  >
+                    {item}
+                  </button>
                 ))}
+              </div>
+              <div className="flex gap-4 mt-3">
+                <input type="checkbox" />
+                <p className="man-rope text-[#42493E] text-xs ">
+                  I CONSENT TO THE PROCESSING OF MY PERSONAL DATA TO RECEIVE THE
+                  L'ARTIGIANO JOURNAL AND SPECIAL INVITATIONS. I HAVE READ THE
+                  PRIVACY POLICY.
+                </p>
+              </div>
+              <div className=" flex gap-4 mt-3 items-center mb-4 text-center">
+                <button className="man-rope py-3 px-6 flex justify-center font-medium bg-[#154212] rounded-md text-[#FFF8EF]">
+                  Complete My Invitation
+                </button>
+                <button className="man-rope py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline">
+                 Already a customer?
+                </button>
               </div>
             </div>
           </form>

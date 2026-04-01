@@ -7,16 +7,29 @@ const RegistrationForm = () => {
   return (
     <>
       <div className="text-[#154212] font-bold tracking-widest flex items-center justify-between p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
-        <div onClick={()=>Navigate('/')} className="flex justify-start hover:scale-[112%] transition-all duration-300 ">
-          <img className="backdrop-blur-2xl drop-shadow-sm" src="/back(1).png" alt="back" width={40} />
+        <div
+          onClick={() => Navigate("/")}
+          className="flex justify-start hover:scale-[112%] transition-all duration-300 "
+        >
+          <img
+            className="backdrop-blur-2xl drop-shadow-sm"
+            src="/back(1).png"
+            alt="back"
+            width={40}
+          />
         </div>
-        <div className=" gap-4 flex noto2-serif justify-center items-center"><span><lord-icon
-            src="https://cdn.lordicon.com/shcfcebj.json"
-            trigger="loop"
-            delay="300"
-            colors="primary:#629110,secondary:#0a5c15"
-            style={{ width: 50, height:50}}
-          ></lord-icon></span>Registration Form</div>
+        <div className=" gap-4 flex noto2-serif justify-center items-center">
+          <span>
+            <lord-icon
+              src="https://cdn.lordicon.com/shcfcebj.json"
+              trigger="loop"
+              delay="300"
+              colors="primary:#629110,secondary:#0a5c15"
+              style={{ width: 50, height: 50 }}
+            ></lord-icon>
+          </span>
+          Registration Form
+        </div>
       </div>
       <div className="grid grid-cols-2 gap-4 justify-center items-center mt-12 ml-12">
         <div className="col-span-1">
@@ -76,6 +89,7 @@ const RegistrationForm = () => {
                 <input
                   type="text"
                   placeholder="GIOVANNI"
+                  required
                   className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
               </div>
@@ -86,6 +100,7 @@ const RegistrationForm = () => {
                 <input
                   type="text"
                   placeholder="ROSSI"
+                  required
                   className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
               </div>
@@ -99,6 +114,7 @@ const RegistrationForm = () => {
               </label>
               <input
                 type="email"
+                required
                 placeholder="GIOVANNIROSSI@GMAIL.COM"
                 className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
@@ -113,6 +129,7 @@ const RegistrationForm = () => {
               <input
                 type="tel"
                 placeholder="1234567890"
+                required
                 className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
             </div>
@@ -126,6 +143,7 @@ const RegistrationForm = () => {
               <input
                 type="tel"
                 placeholder="••••••••"
+                required
                 className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
             </div>
@@ -139,6 +157,7 @@ const RegistrationForm = () => {
               <div className="flex gap-4">
                 {["Signore", "Signora", "Neutro"].map((item) => (
                   <button
+                    required
                     className={`px-6 py-2 rounded-xl border man-rope font-medium transition-all duration-200 ${
                       gender === item
                         ? "bg-[#154212] text-[#1E1B13] border-[#154212]"
@@ -158,11 +177,22 @@ const RegistrationForm = () => {
                 </p>
               </div>
               <div className=" flex gap-4 mt-3 items-center mb-4 text-center">
-                <button  onClick={()=>{Navigate('/registered')}} className="man-rope py-3 px-6 flex justify-center font-medium bg-[#154212] rounded-md text-[#FFF8EF]">
+                <button
+                  type="submit"
+                  onClick={() => {
+                    Navigate("/registered");
+                  }}
+                  className="man-rope py-3 px-6 flex justify-center font-medium bg-[#154212] rounded-md text-[#FFF8EF]"
+                >
                   Complete My Invitation
                 </button>
-                <button onClick={()=>{Navigate('/orderform')}} className="man-rope py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline">
-                 Already a customer?
+                <button
+                  onClick={() => {
+                    Navigate("/orderform");
+                  }}
+                  className="man-rope py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline"
+                >
+                  Already a customer?
                 </button>
               </div>
             </div>

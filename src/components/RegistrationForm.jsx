@@ -4,6 +4,37 @@ import { useNavigate } from "react-router-dom";
 const RegistrationForm = () => {
   const Navigate = useNavigate();
   const [gender, setGender] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [touched, setTouched] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    password: false,
+    confirmPassword: false,
+  });
+  const [handleview, setHandleview] = useState(false);
+  const [aggrement, setAggrement] = useState(false);
+  const [confirmPassword, setconfirmPassword] = useState("");
+  const strongPassword =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(Password);
+  const handleSubmit = () => {
+    if (
+      firstName.trim() !== "" &&
+      lastName.trim() !== "" &&
+      email.includes("@") &&
+      strongPassword &&
+      Password === confirmPassword &&
+      aggrement !== false &&
+      gender !== ""
+    ) {
+      Navigate("/registered");
+    } else {
+      alert("Please fill all fields correctly");
+    }
+  };
   return (
     <>
       <div className="text-[#154212] font-bold tracking-widest flex items-center justify-between p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
@@ -80,7 +111,7 @@ const RegistrationForm = () => {
         <div className="col-span-1 bg-[#FBF3E4] overflow-y-scroll w-[600px] h-[600px] relative backdrop-blur-2xl drop-shadow-sm">
           <div className=" absolute top-0 right-0 bg-[#154212] opacity-5 w-[100px] h-[100px]"></div>
 
-          <form action="">
+          <form action="" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 mt-7">
               <div className="col-span-1 flex flex-col mx-6 gap-4 ">
                 <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
@@ -89,7 +120,9 @@ const RegistrationForm = () => {
                 <input
                   type="text"
                   placeholder="GIOVANNI"
+                  value={firstName}
                   required
+                  onChange={(e) => setFirstName(e.target.value)}
                   className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
               </div>
@@ -100,6 +133,8 @@ const RegistrationForm = () => {
                 <input
                   type="text"
                   placeholder="ROSSI"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   required
                   className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
@@ -115,6 +150,8 @@ const RegistrationForm = () => {
               <input
                 type="email"
                 required
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 placeholder="GIOVANNIROSSI@GMAIL.COM"
                 className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
@@ -133,19 +170,90 @@ const RegistrationForm = () => {
                 className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
             </div>
-            <div className="flex flex-col mx-6 gap-4">
-              <label
-                htmlFor=""
-                className="man3-rope text-[#42493E] text-md mt-3"
-              >
-                Create Password
-              </label>
-              <input
-                type="tel"
-                placeholder="••••••••"
-                required
-                className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
-              />
+
+            <div className="grid grid-cols-2 mt-7 ">
+              <div className="col-span-1 flex flex-col mx-6 gap-4 ">
+                <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
+                  Create Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={handleview ? "text" : "password"}
+                    placeholder="•••••••"
+                    required
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={Password}
+                    className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                  />
+                  {handleview ? (
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
+                      <lord-icon
+                        onClick={() => setHandleview(!handleview)}
+                        src="https://cdn.lordicon.com/dicvhxpz.json"
+                        trigger="loop"
+                        delay="1000"
+                        colors="primary:#0a5c15,secondary:#109121"
+                        style={{ width: 25, height: 25 }}
+                      ></lord-icon>
+                    </div>
+                  ) : (
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
+                      <lord-icon
+                        onClick={() => setHandleview(!handleview)}
+                        src="https://cdn.lordicon.com/dicvhxpz.json"
+                        trigger="loop"
+                        delay="1000"
+                        state="hover-cross"
+                        colors="primary:#0a5c15,secondary:#109121"
+                        style={{ width: 25, height: 25 }}
+                      ></lord-icon>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="col-span-1 flex flex-col mr-6 gap-4">
+                <label
+                  htmlFor=""
+                  className="man3-rope  text-[#42493E] text-md "
+                >
+                  Confirm Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={handleview ? "text" : "password"}
+                    placeholder="•••••••"
+                    onChange={(e) => setconfirmPassword(e.target.value)}
+                    required
+                    value={confirmPassword}
+                    className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                  />
+                  {handleview ? (
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
+                      <lord-icon
+                        src="https://cdn.lordicon.com/dicvhxpz.json"
+                        trigger="loop"
+                        delay="1000"
+                        onClick={() => setHandleview(!handleview)}
+                        colors="primary:#0a5c15,secondary:#109121"
+                        style={{ width: 25, height: 25 }}
+                      ></lord-icon>
+                    </div>
+                  ) : (
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
+                      <lord-icon
+                        src="https://cdn.lordicon.com/dicvhxpz.json"
+                        trigger="loop"
+                        onClick={() => setHandleview(!handleview)}
+                        delay="1000"
+                        colors="primary:#0a5c15,secondary:#109121"
+                        style={{ width: 25, height: 25 }}
+                        state="hover-cross"
+                      ></lord-icon>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
             <div className="flex flex-col mx-6 gap-4">
               <label
@@ -158,6 +266,12 @@ const RegistrationForm = () => {
                 {["Signore", "Signora", "Neutro"].map((item) => (
                   <button
                     required
+                    type="button"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                    onClick={() => {
+                      setGender(item);
+                    }}
                     className={`px-6 py-2 rounded-xl border man-rope font-medium transition-all duration-200 ${
                       gender === item
                         ? "bg-[#154212] text-[#1E1B13] border-[#154212]"
@@ -169,7 +283,11 @@ const RegistrationForm = () => {
                 ))}
               </div>
               <div className="flex gap-4 mt-3">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  checked={aggrement}
+                  onChange={(e) => setAggrement(e.target.value)}
+                />
                 <p className="man-rope text-[#42493E] text-xs ">
                   I CONSENT TO THE PROCESSING OF MY PERSONAL DATA TO RECEIVE THE
                   L'ARTIGIANO JOURNAL AND SPECIAL INVITATIONS. I HAVE READ THE
@@ -179,9 +297,6 @@ const RegistrationForm = () => {
               <div className=" flex gap-4 mt-3 items-center mb-4 text-center">
                 <button
                   type="submit"
-                  onClick={() => {
-                    Navigate("/registered");
-                  }}
                   className="man-rope py-3 px-6 flex justify-center font-medium bg-[#154212] rounded-md text-[#FFF8EF]"
                 >
                   Complete My Invitation

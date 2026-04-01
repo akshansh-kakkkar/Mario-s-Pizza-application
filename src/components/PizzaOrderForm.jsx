@@ -116,56 +116,111 @@ const PizzaOrderForm = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div>
-            <div className="mx-12 mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
-              Add topping ($1.50 each)
+            <div>
+              <div className="mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
+                Add topping ($1.50 each)
+              </div>
+              <div className="  flex flex-wrap gap-5">
+                <div className="flex flex-wrap w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
+                  <img src="/mushroom.png" alt="mushroom" width={20} />
+                  <span>Mushroom</span>
+                </div>
+                <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
+                  <img src="/onion.png" alt="onion" width={20} />
+                  <span>Onion</span>
+                </div>
+                <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4]">
+                  <img src="/sausage.png" alt="mushroom" width={20} />
+                  <span>Sausage</span>
+                </div>
+                <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
+                  <img src="/pepporoni.png" alt="mushroom" width={20} />
+                  <span>Pepperoni</span>
+                </div>
+                <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
+                  <img src="/bacon.png" alt="mushroom" width={20} />
+                  <span>Bacon</span>
+                </div>
+                <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
+                  <img src="/cheese.png" alt="mushroom" width={20} />
+                  <span>Extra Cheese</span>
+                </div>
+              </div>
             </div>
-            <div className="mx-12  flex flex-wrap gap-5">
-              <div className="flex flex-wrap w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
-                <img src="/mushroom.png" alt="mushroom" width={20} />
-                <span>Mushroom</span>
+            <div>
+              <div className=" mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
+                Extras & Sides
               </div>
-              <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
-                <img src="/onion.png" alt="onion" width={20} />
-                <span>Onion</span>
-              </div>
-              <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4]">
-                <img src="/sausage.png" alt="mushroom" width={20} />
-                <span>Sausage</span>
-              </div>
-              <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
-                <img src="/pepporoni.png" alt="mushroom" width={20} />
-                <span>Pepperoni</span>
-              </div>
-              <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
-                <img src="/bacon.png" alt="mushroom" width={20} />
-                <span>Bacon</span>
-              </div>
-              <div className="flex flex-wrap w-fit py-2 px-4 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
-                <img src="/cheese.png" alt="mushroom" width={20} />
-                <span>Extra Cheese</span>
+              <div className=" flex flex-wrap gap-5 mb-12">
+                <div className="flex flex-wrap w-fit  py-5 px-8 backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
+                  <img src="/mushroom.png" alt="mushroom" width={20} />
+                  <span>Mushroom</span>
+                </div>
+                <div className="flex flex-wrap w-fit py-5 px-8 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
+                  <img src="/onion.png" alt="onion" width={20} />
+                  <span>Onion</span>
+                </div>
+                <div className="flex flex-wrap w-fit py-5 px-8 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4]">
+                  <img src="/sausage.png" alt="mushroom" width={20} />
+                  <span>Sausage</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="mx-12 mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
-        Extras & Sides
-      </div>
-      <div className="mx-12 flex flex-wrap gap-5 mb-12">
-        <div className="flex flex-wrap w-fit  py-5 px-8 backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
-          <img src="/mushroom.png" alt="mushroom" width={20} />
-          <span>Mushroom</span>
-        </div>
-        <div className="flex flex-wrap w-fit py-5 px-8 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ">
-          <img src="/onion.png" alt="onion" width={20} />
-          <span>Onion</span>
-        </div>
-        <div className="flex flex-wrap w-fit py-5 px-8 rounded-2xl  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4]">
-          <img src="/sausage.png" alt="mushroom" width={20} />
-          <span>Sausage</span>
+          <div className="col-span-1 bg-[#FBF3E4]  backdrop-blur-2xl drop-shadow-sm w-[350px] h-[550px] border-2 border-[rgba(194,201,187,0.5)] rounded-xl">
+            <div className="noto2-serif mt-4 text-xl flex justify-center text-[#1E1B13]">
+              ORDER SUMMARY
+            </div>
+            <div className=" mt-4 mx-4 noto2-serif font-bold text-xl text-[#1E1B13]">
+              Medium Pizza
+            </div>
+            <div className="mt-2 mx-4 noto-serif  font-medium text-sm text-[#1e1b13ad]">
+              Regular crust
+            </div>
+            <div className="w-[300px] my-5 flex justify-center mx-3 h-[0.1px] bg-[#1e1b1362]"></div>
+            <div>
+              <div className="mt-2 mx-4 noto-serif  font-medium text-sm text-[#1e1b13ad]">
+                Mushroom
+              </div>
+              <div className="mt-2 mx-4 noto-serif  font-medium text-sm text-[#1e1b13ad]">
+                Onion
+              </div>
+              <div className="mt-2 mx-4 noto-serif  font-medium text-sm text-[#1e1b13ad]">
+                Sausage
+              </div>
+              <div className="mt-2 mx-4 noto-serif  font-medium text-sm text-[#1e1b13ad]">
+                Cheese
+              </div>
+            </div>
+            <div className="w-[300px] my-5 flex justify-center mx-3 h-[0.1px] bg-[#1e1b1362]"></div>
+            <div className=" mt-4 mx-4 noto2-serif font-bold text-xl text-[#1E1B13]">
+              Garlic Bread
+            </div>
+            <div className="w-[300px] my-5 flex justify-center mx-3 h-[0.1px] bg-[#1e1b1362]"></div>
+            <div className="flex justify-between items-center  mt-4 mx-4 ">
+              <div className="noto2-serif font-bold text-lg text-[#1E1B13]">
+                Quantity
+              </div>
+              <div className="bg-[#FBF3E4]   backdrop-blur-2xl drop-shadow-sm flex gap-5 items-center justify-center rounded-xl py-2 px-3 text-[#1e1b13]">
+                <span className="text-2xl man3-rope ">-</span>
+                <span className="text-xl man3-rope ">1</span>
+                <span className="text-2xl man3-rope ">+</span>
+              </div>
+            </div>
+            <div className="flex justify-center gap-50 items-center  mt-4 mx-8 ">
+              <div className="noto2-serif font-bold text-lg text-[#AD302F]">
+                TOTAL
+              </div>
+              <div className="noto2-serif font-bold text-lg text-[#AD302F]">
+                $28
+              </div>
+            </div>
+            <div className="flex justify-center gap-50 items-center  bg-[#AD302F] p-2 rounded-2xl mt-4 mx-8 ">
+              <div className="noto2-serif font-bold text-lg text-[#FBF3E4]">
+                TOTAL
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

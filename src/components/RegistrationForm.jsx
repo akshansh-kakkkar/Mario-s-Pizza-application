@@ -8,32 +8,57 @@ const RegistrationForm = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [touched, setTouched] = useState({
     firstName: false,
     lastName: false,
     email: false,
+    phone: false,
     password: false,
     confirmPassword: false,
   });
+  const handleBlur = (field) => {
+    setTouched((prev) => ({
+      ...prev,
+      [field]: true,
+    }));
+  };
   const [handleview, setHandleview] = useState(false);
   const [aggrement, setAggrement] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState("");
   const strongPassword =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(Password);
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    setTouched({
+      firstName: true,
+      lastName: true,
+      email: true,
+      phone: true,
+      password: true,
+      confirmPassword: true,
+    });
+    e.preventDefault();
     if (
       firstName.trim() !== "" &&
       lastName.trim() !== "" &&
       email.includes("@") &&
+      phone.trim() !== "" &&
       strongPassword &&
       Password === confirmPassword &&
-      aggrement !== false &&
+      aggrement === true &&
       gender !== ""
     ) {
       Navigate("/registered");
     } else {
       alert("Please fill all fields correctly");
     }
+  };
+  const errors = {
+    firstName: firstName.trim() === "",
+    lastName: lastName.trim() === "",
+    email: !email.includes("@"),
+    password: !strongPassword,
+    confirmPassword: Password !== confirmPassword,
   };
   return (
     <>
@@ -122,9 +147,17 @@ const RegistrationForm = () => {
                   placeholder="GIOVANNI"
                   value={firstName}
                   required
+                  onBlur={() => handleBlur("firstName")}
                   onChange={(e) => setFirstName(e.target.value)}
                   className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
+                {touched.firstName &&
+                  firstName.trim() === "" &&
+                  errors.firstName && (
+                    <p className="text-red-500 text-sm">
+                      *First name is required
+                    </p>
+                  )}
               </div>
               <div className="col-span-1 flex flex-col mr-6 gap-4">
                 <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
@@ -136,8 +169,16 @@ const RegistrationForm = () => {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   required
+                  onBlur={() => handleBlur("lastName")}
                   className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
+                {touched.lastName &&
+                  lastName.trim() === "" &&
+                  errors.lastName && (
+                    <p className="text-red-500 text-sm">
+                      *Last name is required
+                    </p>
+                  )}
               </div>
             </div>
             <div className="flex flex-col mx-6 gap-4">
@@ -152,9 +193,18 @@ const RegistrationForm = () => {
                 required
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
+                onBlur={() => handleBlur("email")}
                 placeholder="GIOVANNIROSSI@GMAIL.COM"
                 className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
+              {touched.email && email.trim() === "" ? (
+                <p className="text-red-500 text-sm">*Email is required</p>
+              ) : (
+                touched.email &&
+                errors.email && (
+                  <p className="text-red-500 text-sm">*Invalid Email</p>
+                )
+              )}
             </div>
             <div className="flex flex-col mx-6 gap-4">
               <label
@@ -167,9 +217,15 @@ const RegistrationForm = () => {
                 type="tel"
                 placeholder="1234567890"
                 required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                onBlur={() => handleBlur("phone")}
                 className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
             </div>
+            {touched.phone && phone.trim() === "" && (
+              <p className="text-red-500 text-sm">*Phone no. is required</p>
+            )}
 
             <div className="grid grid-cols-2 mt-7 ">
               <div className="col-span-1 flex flex-col mx-6 gap-4 ">
@@ -183,8 +239,17 @@ const RegistrationForm = () => {
                     required
                     onChange={(e) => setPassword(e.target.value)}
                     value={Password}
+                    onBlur={() => handleBlur("password")}
                     className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                   />
+                  {touched.password && Password.trim() === "" && (
+                    <p className="text-red-500 text-sm">
+                      *Password is required
+                    </p>
+                  )}
+                  {errors.password && touched.password && (
+                    <p className="text-red-500 text-sm">*Password is wrong</p>
+                  )}
                   {handleview ? (
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
                       <lord-icon
@@ -226,8 +291,19 @@ const RegistrationForm = () => {
                     onChange={(e) => setconfirmPassword(e.target.value)}
                     required
                     value={confirmPassword}
+                    onBlur={() => handleBlur("confirmPassword")}
                     className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                   />
+                  {touched.confirmPassword && confirmPassword.trim() === "" && (
+                    <p className="text-red-500 text-sm">
+                      *Password is required
+                    </p>
+                  )}
+                  {errors.confirmPassword && touched.confirmPassword && (
+                    <p className="text-red-500 text-sm">
+                      *Passwords does not match
+                    </p>
+                  )}
                   {handleview ? (
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
                       <lord-icon
@@ -286,7 +362,7 @@ const RegistrationForm = () => {
                 <input
                   type="checkbox"
                   checked={aggrement}
-                  onChange={(e) => setAggrement(e.target.value)}
+                  onChange={(e) => setAggrement(e.target.checked)}
                 />
                 <p className="man-rope text-[#42493E] text-xs ">
                   I CONSENT TO THE PROCESSING OF MY PERSONAL DATA TO RECEIVE THE
@@ -305,6 +381,7 @@ const RegistrationForm = () => {
                   onClick={() => {
                     Navigate("/orderform");
                   }}
+                  type="button"
                   className="man-rope py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline"
                 >
                   Already a customer?

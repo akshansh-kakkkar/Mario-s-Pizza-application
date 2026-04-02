@@ -7,6 +7,9 @@ const RegistrationForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [handleview, setHandleview] = useState(false);
+  const [aggrement, setAggrement] = useState(false);
+  const [confirmPassword, setconfirmPassword] = useState("");
   const [Password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [touched, setTouched] = useState({
@@ -17,17 +20,25 @@ const RegistrationForm = () => {
     password: false,
     confirmPassword: false,
   });
+  const strongPassword =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(Password);
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isFormValid =
+    firstName.trim() &&
+    lastName.trim() &&
+    emailValid &&
+    phone.trim() &&
+    strongPassword &&
+    Password === confirmPassword &&
+    aggrement &&
+    gender;
   const handleBlur = (field) => {
     setTouched((prev) => ({
       ...prev,
       [field]: true,
     }));
   };
-  const [handleview, setHandleview] = useState(false);
-  const [aggrement, setAggrement] = useState(false);
-  const [confirmPassword, setconfirmPassword] = useState("");
-  const strongPassword =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(Password);
+
   const handleSubmit = (e) => {
     setTouched({
       firstName: true,
@@ -41,7 +52,7 @@ const RegistrationForm = () => {
     if (
       firstName.trim() !== "" &&
       lastName.trim() !== "" &&
-      email.includes("@") &&
+      emailValid &&
       phone.trim() !== "" &&
       strongPassword &&
       Password === confirmPassword &&
@@ -56,7 +67,7 @@ const RegistrationForm = () => {
   const errors = {
     firstName: firstName.trim() === "",
     lastName: lastName.trim() === "",
-    email: !email.includes("@"),
+    email: !emailValid,
     password: !strongPassword,
     confirmPassword: Password !== confirmPassword,
   };
@@ -102,7 +113,7 @@ const RegistrationForm = () => {
           </div>
           <div className="flex items-center gap-2">
             <div className="w-15 h-[0.3px] bg-[#42493e]"></div>
-            <div className="text-[#154212] text-md tracking-widest man3-rope capitalize">
+            <div className="text-[#154212] text-md tracking-widest man3-rope ">
               MEMEBERSHIP PRIVALAGES
             </div>
           </div>
@@ -111,7 +122,7 @@ const RegistrationForm = () => {
               <span>
                 <img src="./fork-knife.png" width={20} alt="fork-knife" />
               </span>
-              <span className="text-[#154212] text-sm tracking-widest man-rope capitalize">
+              <span className="text-[#154212] text-sm tracking-widest man-rope">
                 Early Seasonal Previews
               </span>
             </div>
@@ -119,7 +130,7 @@ const RegistrationForm = () => {
               <span>
                 <img src="./bar-glass.png" width={20} alt="fork-knife" />
               </span>
-              <span className="text-[#154212] text-sm tracking-widest man-rope capitalize">
+              <span className="text-[#154212] text-sm tracking-widest man-rope ">
                 Enotica Member Discounts
               </span>
             </div>
@@ -127,7 +138,7 @@ const RegistrationForm = () => {
               <span>
                 <img src="./calendar.png" width={20} alt="fork-knife" />
               </span>
-              <span className="text-[#154212] text-sm tracking-widest man-rope capitalize">
+              <span className="text-[#154212] text-sm tracking-widest man-rope ">
                 Invitations only Masterclass
               </span>
             </div>
@@ -149,7 +160,7 @@ const RegistrationForm = () => {
                   required
                   onBlur={() => handleBlur("firstName")}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                  className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
                 {touched.firstName &&
                   firstName.trim() === "" &&
@@ -170,7 +181,7 @@ const RegistrationForm = () => {
                   onChange={(e) => setLastName(e.target.value)}
                   required
                   onBlur={() => handleBlur("lastName")}
-                  className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                  className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                 />
                 {touched.lastName &&
                   lastName.trim() === "" &&
@@ -195,15 +206,17 @@ const RegistrationForm = () => {
                 value={email}
                 onBlur={() => handleBlur("email")}
                 placeholder="GIOVANNIROSSI@GMAIL.COM"
-                className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                className="outline-none   border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
-              {touched.email && email.trim() === "" ? (
-                <p className="text-red-500 text-sm">*Email is required</p>
-              ) : (
-                touched.email &&
-                errors.email && (
-                  <p className="text-red-500 text-sm">*Invalid Email</p>
-                )
+              {touched.email && (
+                <>
+                  {email.trim() === "" && (
+                    <p className="text-red-500 text-sm">*Email is required</p>
+                  )}
+                  {email.trim() !== "" && errors.email && (
+                    <p className="text-red-500 text-sm">*Invalid Email</p>
+                  )}
+                </>
               )}
             </div>
             <div className="flex flex-col mx-6 gap-4">
@@ -220,7 +233,7 @@ const RegistrationForm = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 onBlur={() => handleBlur("phone")}
-                className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
               />
             </div>
             {touched.phone && phone.trim() === "" && (
@@ -240,7 +253,7 @@ const RegistrationForm = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     value={Password}
                     onBlur={() => handleBlur("password")}
-                    className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                    className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                   />
                   {touched.password && Password.trim() === "" && (
                     <p className="text-red-500 text-sm">
@@ -292,7 +305,7 @@ const RegistrationForm = () => {
                     required
                     value={confirmPassword}
                     onBlur={() => handleBlur("confirmPassword")}
-                    className="outline-none capitalize border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                    className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
                   />
                   {touched.confirmPassword && confirmPassword.trim() === "" && (
                     <p className="text-red-500 text-sm">
@@ -339,10 +352,11 @@ const RegistrationForm = () => {
                 Preffered Title
               </label>
               <div className="flex gap-4">
-                {["Signore", "Signora", "Neutro"].map((item) => (
+                {["Male", "Female", "Prefer not to say"].map((item) => (
                   <button
                     required
                     type="button"
+                    key={item}
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
                     onClick={() => {
@@ -350,7 +364,7 @@ const RegistrationForm = () => {
                     }}
                     className={`px-6 py-2 rounded-xl border man-rope font-medium transition-all duration-200 ${
                       gender === item
-                        ? "bg-[#154212] text-[#1E1B13] border-[#154212]"
+                        ? "bg-[#ede6d891] text-[#154212] border-[#154212]"
                         : "bg-[#EDE6D8] text-[#1E1B13] border-transparent"
                     }`}
                   >
@@ -373,7 +387,8 @@ const RegistrationForm = () => {
               <div className=" flex gap-4 mt-3 items-center mb-4 text-center">
                 <button
                   type="submit"
-                  className="man-rope py-3 px-6 flex justify-center font-medium bg-[#154212] rounded-md text-[#FFF8EF]"
+                  disabled={!isFormValid}
+                  className={`man-rope py-3 px-6 flex justify-center font-medium rounded-md text-[#FFF8EF] ${isFormValid ? "bg-[#154212]" : "bg-[#15421254] cursor-not-allowed"}`}
                 >
                   Complete My Invitation
                 </button>

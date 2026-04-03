@@ -9,7 +9,7 @@ const LandingPage = () => {
       <div className="xl:grid flex flex-col justify-center gap-12 m-5 xl:m-0  xl:grid-cols-2 h-[88vh] place-items-center ">
         <div
           onClick={() => Navigate("/registerform")}
-          className="col-span-1 flex-col flex justify-center  items-center sm:w-[500px] sm:h-[500px] flex justify-center items-center transition-all duration-300 hover:scale-[105%] w-[350px] h-[350px] hover:bg-[#f7dba8] backdrop-blur-2xl drop-shadow-sm bg-[#F5EDDE] rounded-2xl"
+          className="col-span-1 flex-col flex justify-center  items-center sm:w-[500px] sm:h-[500px] flex justify-center items-center transition-all duration-300 hover:scale-[105%] w-[300px] h-[300px] hover:bg-[#f7dba8] backdrop-blur-2xl drop-shadow-sm bg-[#F5EDDE] rounded-2xl"
         >
           <lord-icon
             src="https://cdn.lordicon.com/shcfcebj.json"
@@ -25,7 +25,7 @@ const LandingPage = () => {
         </div>
         <div
           onClick={() => Navigate("/orderform")}
-          className="col-span-1  flex-col flex justify-center items-center hover:scale-[105%] hover:bg-[#f7dba8] transition-all duration-300 sm:w-[500px] sm:h-[500px]  w-[350px] h-[350px]  backdrop-blur-2xl drop-shadow-sm rounded-2xl bg-[#F5EDDE]"
+          className="col-span-1  flex-col flex justify-center items-center hover:scale-[105%] hover:bg-[#f7dba8] transition-all duration-300 sm:w-[500px] sm:h-[500px]  w-[300px] h-[300px]  backdrop-blur-2xl drop-shadow-sm rounded-2xl bg-[#F5EDDE]"
         >
           <lord-icon
             src="https://cdn.lordicon.com/urdbeoyx.json"

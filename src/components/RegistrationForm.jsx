@@ -95,29 +95,32 @@ const RegistrationForm = () => {
               style={{ width: 50, height: 50 }}
             ></lord-icon>
           </span>
-          Registration Form
+          <span className="sm:block hidden">Registration Form</span>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4 justify-center items-center mt-12 ml-12">
+      <div className="xl:grid xl:grid-cols-2 flex flex-col gap-4 justify-center items-center mt-12 xl:ml-12">
         <div className="col-span-1">
-          <div className="text-[#154212] man-rope ml-2">
+          <div className="text-[#154212] xl:justify-start flex xl:text-start text-center items-center justify-center man-rope ml-2">
             L'ARTIGIANO PIZZA ATELIER
           </div>
-          <div className="text-[#1E1B13] noto2-serif  tracking-widest text-7xl text-[#154212]">
+          <div className="text-[#1E1B13] noto2-serif  tracking-widest text-5xl md:text-7xl text-[#154212] hidden xl:block">
             Unisiciti alla <span className="text-[#AD302F]">Famiglia</span>
           </div>
-          <div className="man2-rope py-4 text-lg text-[#42493E] w-120">
+          <div className="flex justify-center noto2-serif px-4 text-center tracking-widest text-5xl md:text-7xl text-[#154212] block xl:hidden">
+            Unisiciti alla Famiglia
+          </div>
+          <div className="man2-rope px-4 py-4 flex justify-center text-center xl:items-start items-center xl:justify-start xl:text-left text-lg text-[#42493E] xl:w-120 max-w-[95vw]">
             Become a part of our artisanal legacy. As a member of our inner
             circle, you receive exclusive access to our seasonal reserves,
             private tasting events, and priority table reservations.
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-15 h-[0.3px] bg-[#42493e]"></div>
+          <div className="flex justify-center  xl:justify-start items-center gap-2">
+            <div className="xl:w-15 h-[0.3px] bg-[#42493e]"></div>
             <div className="text-[#154212] text-md tracking-widest man3-rope ">
               MEMEBERSHIP PRIVALAGES
             </div>
           </div>
-          <div className="mt-8 gap-5 flex flex-col">
+          <div className="mt-8 gap-5 xl:justify-start text-center xl:text-start items-center xl:items-start justify-center flex flex-col">
             <div className="flex gap-2 items-center ">
               <span>
                 <img src="./fork-knife.png" width={20} alt="fork-knife" />
@@ -144,12 +147,12 @@ const RegistrationForm = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 bg-[#FBF3E4] overflow-y-scroll w-[600px] h-[600px] relative backdrop-blur-2xl drop-shadow-sm">
+        <div className="col-span-1 bg-[#FBF3E4] overflow-y-scroll w-[90vw] md:w-[600px] h-[600px] relative backdrop-blur-2xl drop-shadow-sm">
           <div className=" absolute top-0 right-0 bg-[#154212] opacity-5 w-[100px] h-[100px]"></div>
 
           <form action="" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 mt-7">
-              <div className="col-span-1 flex flex-col mx-6 gap-4 ">
+            <div className="md:grid md:grid-cols-2 mt-7">
+              <div className="md:col-span-1 flex flex-col mx-6 md:mr-3 gap-4 ">
                 <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
                   First Name
                 </label>
@@ -160,7 +163,7 @@ const RegistrationForm = () => {
                   required
                   onBlur={() => handleBlur("firstName")}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                  className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 w-full"
                 />
                 {touched.firstName &&
                   firstName.trim() === "" &&
@@ -170,7 +173,7 @@ const RegistrationForm = () => {
                     </p>
                   )}
               </div>
-              <div className="col-span-1 flex flex-col mr-6 gap-4">
+              <div className="md:col-span-1 flex flex-col mx-6 md:ml-3 md:mt-0 mt-4 gap-4">
                 <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
                   Last Name
                 </label>
@@ -181,7 +184,7 @@ const RegistrationForm = () => {
                   onChange={(e) => setLastName(e.target.value)}
                   required
                   onBlur={() => handleBlur("lastName")}
-                  className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                  className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 w-full"
                 />
                 {touched.lastName &&
                   lastName.trim() === "" &&
@@ -206,7 +209,7 @@ const RegistrationForm = () => {
                 value={email}
                 onBlur={() => handleBlur("email")}
                 placeholder="GIOVANNIROSSI@GMAIL.COM"
-                className="outline-none   border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 w-full"
               />
               {touched.email && (
                 <>
@@ -233,15 +236,15 @@ const RegistrationForm = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 onBlur={() => handleBlur("phone")}
-                className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 w-full"
               />
             </div>
             {touched.phone && phone.trim() === "" && (
               <p className="text-red-500 text-sm">*Phone no. is required</p>
             )}
 
-            <div className="grid grid-cols-2 mt-7 ">
-              <div className="col-span-1 flex flex-col mx-6 gap-4 ">
+            <div className="md:grid md:grid-cols-2 mt-7 ">
+              <div className="md:col-span-1 flex flex-col mx-6 md:mr-3 gap-4 ">
                 <label htmlFor="" className="man3-rope text-[#42493E] text-md ">
                   Create Password
                 </label>
@@ -253,7 +256,7 @@ const RegistrationForm = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     value={Password}
                     onBlur={() => handleBlur("password")}
-                    className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                    className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 pr-10 w-full"
                   />
                   {touched.password && Password.trim() === "" && (
                     <p className="text-red-500 text-sm">
@@ -290,7 +293,7 @@ const RegistrationForm = () => {
                 </div>
               </div>
 
-              <div className="col-span-1 flex flex-col mr-6 gap-4">
+              <div className="md:col-span-1 flex flex-col mx-6 md:ml-3 mt-4 md:mt-0 gap-4">
                 <label
                   htmlFor=""
                   className="man3-rope  text-[#42493E] text-md "
@@ -305,7 +308,7 @@ const RegistrationForm = () => {
                     required
                     value={confirmPassword}
                     onBlur={() => handleBlur("confirmPassword")}
-                    className="outline-none  border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2"
+                    className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 pr-10 w-full"
                   />
                   {touched.confirmPassword && confirmPassword.trim() === "" && (
                     <p className="text-red-500 text-sm">
@@ -351,7 +354,7 @@ const RegistrationForm = () => {
               >
                 Preffered Title
               </label>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {["Male", "Female", "Prefer not to say"].map((item) => (
                   <button
                     required
@@ -384,11 +387,11 @@ const RegistrationForm = () => {
                   PRIVACY POLICY.
                 </p>
               </div>
-              <div className=" flex gap-4 mt-3 items-center mb-4 text-center">
+              <div className="flex flex-col md:flex-row gap-4 mt-3 md:items-center mb-4 text-center">
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`man-rope py-3 px-6 hover:scale-[94%] duration-300 transition-all flex justify-center font-medium rounded-md text-[#FFF8EF] ${isFormValid ? "bg-[#154212]" : "bg-[#15421254] cursor-not-allowed"}`}
+                  className={`man-rope py-3 px-6 hover:scale-[94%] duration-300 transition-all flex justify-center font-medium rounded-md text-[#FFF8EF] w-full md:w-auto ${isFormValid ? "bg-[#154212]" : "bg-[#15421254] cursor-not-allowed"}`}
                 >
                   Complete My Invitation
                 </button>
@@ -397,7 +400,7 @@ const RegistrationForm = () => {
                     Navigate("/orderform");
                   }}
                   type="button"
-                  className="man-rope hover:scale-[94%] duration-300  transition-all py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline"
+                  className="man-rope hover:scale-[94%] duration-300 transition-all py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline w-full md:w-auto"
                 >
                   Already a customer?
                 </button>

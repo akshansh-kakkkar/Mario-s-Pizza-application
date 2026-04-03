@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 const Registered = () => {
   const Navigate = useNavigate()
   return (
-    <div className="flex h-screen flex-col justify-center items-center ">
+    <div className="flex h-screen flex-col text-center justify-center items-center ">
       <div>
         <img className="animate-pulse" src="/pizza-guy.png" alt="pizza guy" width={550} />
       </div>

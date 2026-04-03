@@ -362,7 +362,7 @@ const RegistrationForm = () => {
                     onClick={() => {
                       setGender(item);
                     }}
-                    className={`px-6 py-2 rounded-xl border man-rope font-medium transition-all duration-200 ${
+                    className={`px-6 py-2 hover:scale-[94%] rounded-xl border man-rope font-medium transition-all duration-200 ${
                       gender === item
                         ? "bg-[#ede6d891] text-[#154212] border-[#154212]"
                         : "bg-[#EDE6D8] text-[#1E1B13] border-transparent"
@@ -388,7 +388,7 @@ const RegistrationForm = () => {
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`man-rope py-3 px-6 flex justify-center font-medium rounded-md text-[#FFF8EF] ${isFormValid ? "bg-[#154212]" : "bg-[#15421254] cursor-not-allowed"}`}
+                  className={`man-rope py-3 px-6 hover:scale-[94%] duration-300 transition-all flex justify-center font-medium rounded-md text-[#FFF8EF] ${isFormValid ? "bg-[#154212]" : "bg-[#15421254] cursor-not-allowed"}`}
                 >
                   Complete My Invitation
                 </button>
@@ -397,7 +397,7 @@ const RegistrationForm = () => {
                     Navigate("/orderform");
                   }}
                   type="button"
-                  className="man-rope py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline"
+                  className="man-rope hover:scale-[94%] duration-300  transition-all py-3 px-6 flex justify-center underline-offset-6 decoration-[0.1px] font-thin text-[#154212] underline"
                 >
                   Already a customer?
                 </button>

@@ -137,7 +137,7 @@ const PizzaOrderForm = () => {
                     <div className="col-span-1 man-rope text-sm flex justify-center items-center flex-col">
                       <div>crispy and light</div>
                       <div className=" noto-serif text-[#AD302F] text-xl font-bold ">
-                        +2
+                        +$2
                       </div>
                     </div>
                   </div>
@@ -158,7 +158,7 @@ const PizzaOrderForm = () => {
                     <div className="col-span-1 man-rope  whitespace-nowrap text-sm flex justify-center items-center flex-col">
                       <div>classic hand-tossed</div>
                       <div className=" noto-serif text-[#AD302F] font-bold text-xl">
-                        +3
+                        +$3
                       </div>
                     </div>
                   </div>

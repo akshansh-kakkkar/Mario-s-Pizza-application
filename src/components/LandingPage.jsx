@@ -16,10 +16,18 @@ const LandingPage = () => {
             trigger="loop"
             delay="300"
             colors="primary:#629110,secondary:#0a5c15"
-            className="animate-pulse duration-1000"
+            className="animate-pulse  hidden sm:block duration-1000"
             style={{ width: 250, height: 250 }}
           ></lord-icon>
-          <div className="text-[#154212] text-4xl font-bold tracking-widest noto2-serif">
+                    <lord-icon
+            src="https://cdn.lordicon.com/shcfcebj.json"
+            trigger="loop"
+            delay="300"
+            colors="primary:#629110,secondary:#0a5c15"
+            className="animate-pulse  block sm:hidden duration-1000"
+            style={{ width: 150, height: 150 }}
+          ></lord-icon>
+          <div className="text-[#154212]  text-2xl sm:text-4xl font-bold tracking-widest noto2-serif">
             Register
           </div>
         </div>
@@ -31,11 +39,19 @@ const LandingPage = () => {
             src="https://cdn.lordicon.com/urdbeoyx.json"
             trigger="loop"
             delay="300"
-            className="animate-pulse duration-1000"
+            className="animate-pulse hidden sm:block duration-1000"
             colors="primary:#629110,secondary:#c71f16"
             style={{ width: 250, height: 250 }}
           ></lord-icon>
-          <div className="text-[#154212] text-4xl font-bold tracking-widest noto2-serif">
+                    <lord-icon
+            src="https://cdn.lordicon.com/urdbeoyx.json"
+            trigger="loop"
+            delay="300"
+            className="animate-pulse block  sm:hidden duration-1000"
+            colors="primary:#629110,secondary:#c71f16"
+            style={{ width: 150, height: 150 }}
+          ></lord-icon>
+          <div className="text-[#154212] text-2xl sm:text-4xl font-bold tracking-widest noto2-serif">
             Mario's Pizza
           </div>
         </div>

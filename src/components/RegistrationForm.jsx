@@ -104,10 +104,10 @@ const RegistrationForm = () => {
             L'ARTIGIANO PIZZA ATELIER
           </div>
           <div className="text-[#1E1B13] noto2-serif  tracking-widest text-5xl md:text-7xl text-[#154212] hidden xl:block">
-            Unisiciti alla <span className="text-[#AD302F]">Famiglia</span>
+            Unisciti alla <span className="text-[#AD302F]">Famiglia</span>
           </div>
           <div className="flex justify-center noto2-serif px-4 text-center tracking-widest text-5xl md:text-7xl text-[#154212] block xl:hidden">
-            Unisiciti alla Famiglia
+            Unisciti alla Famiglia
           </div>
           <div className="man2-rope px-4 py-4 flex justify-center text-center xl:items-start items-center xl:justify-start xl:text-left text-lg text-[#42493E] xl:w-120 max-w-[95vw]">
             Become a part of our artisanal legacy. As a member of our inner
@@ -117,7 +117,7 @@ const RegistrationForm = () => {
           <div className="flex justify-center  xl:justify-start items-center gap-2">
             <div className="xl:w-15 h-[0.3px] bg-[#42493e]"></div>
             <div className="text-[#154212] text-md tracking-widest man3-rope ">
-              MEMEBERSHIP PRIVALAGES
+              MEMBERSHIP PRIVILEGES
             </div>
           </div>
           <div className="mt-8 gap-5 xl:justify-start text-center xl:text-start items-center xl:items-start justify-center flex flex-col">
@@ -258,14 +258,16 @@ const RegistrationForm = () => {
                     onBlur={() => handleBlur("password")}
                     className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 pr-10 w-full"
                   />
-                  {touched.password && Password.trim() === "" && (
-                    <p className="text-red-500 text-sm">
-                      *Password is required
-                    </p>
-                  )}
-                  {errors.password && touched.password && (
-                    <p className="text-red-500 text-sm">*Password is wrong</p>
-                  )}
+                  <div className="absolute top-full pt-1 left-0 w-full z-10">
+                    {touched.password && Password.trim() === "" && (
+                      <p className="text-red-500 text-sm">
+                        *Password is required
+                      </p>
+                    )}
+                    {touched.password && Password.trim() !== "" && errors.password && (
+                      <p className="text-red-500 text-sm leading-tight">*Requires 8+ chars with uppercase, lowercase, number & symbol</p>
+                    )}
+                  </div>
                   {handleview ? (
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
                       <lord-icon
@@ -310,16 +312,18 @@ const RegistrationForm = () => {
                     onBlur={() => handleBlur("confirmPassword")}
                     className="outline-none border-b border-[rgba(194,201,187,0.5)] text-[#1E1B13] placeholder:text-[rgba(194,201,187,0.3)] tracking-widest man-rope text-xl p-2 pr-10 w-full"
                   />
-                  {touched.confirmPassword && confirmPassword.trim() === "" && (
-                    <p className="text-red-500 text-sm">
-                      *Password is required
-                    </p>
-                  )}
-                  {errors.confirmPassword && touched.confirmPassword && (
-                    <p className="text-red-500 text-sm">
-                      *Passwords does not match
-                    </p>
-                  )}
+                  <div className="absolute top-full pt-1 left-0 w-full z-10">
+                    {touched.confirmPassword && confirmPassword.trim() === "" && (
+                      <p className="text-red-500 text-sm">
+                        *Confirm password is required
+                      </p>
+                    )}
+                    {touched.confirmPassword && confirmPassword.trim() !== "" && errors.confirmPassword && (
+                      <p className="text-red-500 text-sm">
+                        *Passwords do not match
+                      </p>
+                    )}
+                  </div>
                   {handleview ? (
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
                       <lord-icon
@@ -352,7 +356,7 @@ const RegistrationForm = () => {
                 htmlFor=""
                 className="man3-rope text-[#42493E] text-md mt-3"
               >
-                Preffered Title
+                Preferred Title
               </label>
               <div className="flex flex-wrap gap-4">
                 {["Male", "Female", "Prefer not to say"].map((item) => (
@@ -365,11 +369,10 @@ const RegistrationForm = () => {
                     onClick={() => {
                       setGender(item);
                     }}
-                    className={`px-6 py-2 hover:scale-[94%] rounded-xl border man-rope font-medium transition-all duration-200 ${
-                      gender === item
-                        ? "bg-[#ede6d891] text-[#154212] border-[#154212]"
-                        : "bg-[#EDE6D8] text-[#1E1B13] border-transparent"
-                    }`}
+                    className={`px-6 py-2 hover:scale-[94%] rounded-xl border man-rope font-medium transition-all duration-200 ${gender === item
+                      ? "bg-[#ede6d891] text-[#154212] border-[#154212]"
+                      : "bg-[#EDE6D8] text-[#1E1B13] border-transparent"
+                      }`}
                   >
                     {item}
                   </button>

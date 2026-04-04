@@ -215,45 +215,45 @@ const PizzaOrderForm = () => {
                 <div className="mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
                   Add topping ($1.50 each)
                 </div>
-                <div className="flex flex-wrap justify-center md:justify-start gap-5">
+                <div className={`flex flex-wrap justify-center md:justify-start gap-5 ${!isFormValid ? "opacity-50 cursor-not-allowed" : ""}`}>
                   <div
-                    onClick={() => toggleTopping("mushroom")}
-                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center cursor-pointer duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("mushroom") ? "border-2 border-[#AD302F]" : ""}`}
+                    onClick={() => isFormValid && toggleTopping("mushroom")}
+                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"} duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("mushroom") ? "border-2 border-[#AD302F]" : ""}`}
                   >
                     <img src="/mushroom.png" alt="mushroom" width={20} />
                     <span>Mushroom</span>
                   </div>
                   <div
-                    onClick={() => toggleTopping("onion")}
-                    className={`flex flex-wrap w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center cursor-pointer duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("onion") ? "border-2 border-[#AD302F]" : ""}`}
+                    onClick={() => isFormValid && toggleTopping("onion")}
+                    className={`flex flex-wrap w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"} duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("onion") ? "border-2 border-[#AD302F]" : ""}`}
                   >
                     <img src="/onion.png" alt="onion" width={20} />
                     <span>Onion</span>
                   </div>
                   <div
-                    onClick={() => toggleTopping("sausage")}
-                    className={`flex flex-wrap w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center cursor-pointer duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("sausage") ? "border-2 border-[#AD302F]" : ""}`}
+                    onClick={() => isFormValid && toggleTopping("sausage")}
+                    className={`flex flex-wrap w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"} duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("sausage") ? "border-2 border-[#AD302F]" : ""}`}
                   >
                     <img src="/sausage.png" alt="mushroom" width={20} />
                     <span>Sausage</span>
                   </div>
                   <div
-                    onClick={() => toggleTopping("pepperoni")}
-                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center cursor-pointer duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("pepperoni") ? "border-2 border-[#AD302F]" : ""}`}
+                    onClick={() => isFormValid && toggleTopping("pepperoni")}
+                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"} duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("pepperoni") ? "border-2 border-[#AD302F]" : ""}`}
                   >
                     <img src="/pepporoni.png" alt="mushroom" width={20} />
                     <span>Pepperoni</span>
                   </div>
                   <div
-                    onClick={() => toggleTopping("bacon")}
-                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center cursor-pointer duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("bacon") ? "border-2 border-[#AD302F]" : ""}`}
+                    onClick={() => isFormValid && toggleTopping("bacon")}
+                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"} duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("bacon") ? "border-2 border-[#AD302F]" : ""}`}
                   >
                     <img src="/bacon.png" alt="mushroom" width={20} />
                     <span>Bacon</span>
                   </div>
                   <div
-                    onClick={() => toggleTopping("cheese")}
-                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center cursor-pointer duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("cheese") ? "border-2 border-[#AD302F]" : ""}`}
+                    onClick={() => isFormValid && toggleTopping("cheese")}
+                    className={`flex flex-wrap hover:scale-[108%] w-fit py-2 px-4  backdrop-blur-2xl drop-shadow-sm  rounded-2xl font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"} duration-300 transition-all scale-[105%] gap-4 bg-[#FBF3E4] ${toppings.includes("cheese") ? "border-2 border-[#AD302F]" : ""}`}
                   >
                     <img src="/cheese.png" alt="mushroom" width={20} />
                     <span>Extra Cheese</span>
@@ -264,7 +264,7 @@ const PizzaOrderForm = () => {
                 <div className=" mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
                   Extras & Sides ($5 each)
                 </div>
-                <div className="flex flex-wrap justify-center md:justify-start gap-5 mb-12">
+                <div className={`flex flex-wrap justify-center md:justify-start gap-5 mb-12 `}>
                   <div
                     onClick={() => toggleExtra("garlic-bread")}
                     className={`flex flex-wrap w-60 hover:scale-[108%] py-5 px-8 rounded-2xl transition-all duration-300 cursor-pointer  backdrop-blur-2xl drop-shadow-sm  font-bold text-md whitespace-nowrap text-[#1E1B13]  noto2-serif items-center gap-4 bg-[#FBF3E4] ${Extras["garlic-bread"] ? "border-2 border-[#AD302F]" : ""}`}

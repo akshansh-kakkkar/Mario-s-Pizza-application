@@ -289,7 +289,7 @@ const PizzaOrderForm = () => {
                 </div>
               </div>
             </div>
-            <div className="stick  top-36 bg-[#FBF3E4] md:mx-2 drop-shadow-sm w-[95%] md:w-full max-w-[450px] mx-auto mb-10 xl:mb-0 h-[560px] border-2 border-[rgba(194,201,187,0.5)] rounded-xl">
+            <div className="sticky  top-36 bg-[#FBF3E4] md:mx-2 drop-shadow-sm w-[95%] md:w-full max-w-[450px] mx-auto mb-10 xl:mb-0 h-[560px] border-2 border-[rgba(194,201,187,0.5)] rounded-xl">
               <div className="noto2-serif mt-4 font-bold  text-xl flex justify-center text-[#1E1B13]">
                 ORDER SUMMARY
               </div>

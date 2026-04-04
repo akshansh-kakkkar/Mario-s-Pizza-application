@@ -89,7 +89,7 @@ const PizzaOrderForm = () => {
           <span className="sm:block hidden">MARIO'S PIZZA</span>
         </div>
       </div>
-      <form action="" onChange={handleChange}>
+      <form >
         <div className=" relative">
           <div className="mx-12 mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
             Choose Size
@@ -295,7 +295,7 @@ const PizzaOrderForm = () => {
               </div>
               <div className="w-[90%] items-center my-2 flex justify-center mx-auto h-[0.1px] bg-[#1e1b1362]"></div>
               <div className="h-[290px]">
-                {total === 0 ? (
+                {!size && !crust && toppings.length === 0 && Object.keys(Extras).length === 0 ? (
                   <div className="flex flex-col text-center items-center justify-center">
                     <lord-icon
                       src="https://cdn.lordicon.com/qfijwmqj.json"
@@ -412,17 +412,17 @@ const PizzaOrderForm = () => {
                 <div className="noto2-serif font-bold text-lg text-[#1E1B13]">
                   Quantity
                 </div>
-                <div className="bg-[#FBF3E4]   backdrop-blur-2xl drop-shadow-sm flex gap-5 items-center justify-center rounded-xl py-2 px-3 text-[#1e1b13]">
+                <div className={`bg-[#FBF3E4] backdrop-blur-2xl drop-shadow-sm flex gap-5 items-center justify-center rounded-xl py-2 px-3 text-[#1e1b13] ${!isFormValid ? "opacity-50 cursor-not-allowed" : ""}`}>
                   <span
-                    className="text-2xl man3-rope cursor-pointer"
-                    onClick={decreaseQuanitity}
+                    className={`text-2xl man3-rope ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"}`}
+                    onClick={() => isFormValid && decreaseQuanitity()}
                   >
                     -
                   </span>
                   <span className="text-xl man3-rope ">{quantity}</span>
                   <span
-                    className="text-2xl man3-rope cursor-pointer"
-                    onClick={increaseQuantity}
+                    className={`text-2xl man3-rope ${isFormValid ? "cursor-pointer" : "cursor-not-allowed"}`}
+                    onClick={() => isFormValid && increaseQuantity()}
                   >
                     +
                   </span>
@@ -438,7 +438,7 @@ const PizzaOrderForm = () => {
                 </div>
               </div>
               <div
-                className={`flex justify-center items-center cursor-pointer hover:scale-[94%] duration-300 transition-all bg-[#AD302F] p-2 rounded-2xl mt-4 mx-4 ${total === 0 ? "bg-[#ad2f2f65]" : ""}`}
+                className={`flex justify-center items-center cursor-pointer hover:scale-[94%] duration-300 transition-all bg-[#AD302F] p-2 rounded-2xl mt-4 mx-4 ${!isFormValid ? "bg-[#ad2f2f65]" : ""}`}
               >
                 <button
                   type="submit"
@@ -453,7 +453,7 @@ const PizzaOrderForm = () => {
                     Navigate("/orderconfirm");
                   }}
                   disabled={!isFormValid}
-                  className={`noto2-serif font-bold text-lg px-4 text-center w-full text-[#FBF3E4] ${total === 0 ? "cursor-not-allowed" : ""}`}
+                  className={`noto2-serif font-bold text-lg px-4 text-center w-full text-[#FBF3E4] ${!isFormValid ? "cursor-not-allowed" : ""}`}
                 >
                   Check Out
                 </button>

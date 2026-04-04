@@ -98,8 +98,9 @@ const RegistrationForm = () => {
           <span className="sm:block hidden">Registration Form</span>
         </div>
       </div>
-      <div className="xl:grid xl:grid-cols-2 flex flex-col gap-4 justify-center items-center mt-12 xl:ml-12">
-        <div className="col-span-1">
+      <div className="relative ">
+      <div className="xl:grid xl:grid-cols-2 mb-12 flex xl:items-start flex-col gap-4 justify-center items-center mt-12 xl:ml-12">
+        <div className="xl:sticky block top-10 h-fit ">
           <div className="text-[#154212] xl:justify-start flex xl:text-start text-center items-center justify-center man-rope ml-2">
             L'ARTIGIANO PIZZA ATELIER
           </div>
@@ -147,7 +148,7 @@ const RegistrationForm = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 bg-[#FBF3E4] overflow-y-scroll w-[90vw] md:w-[600px] h-[600px] relative backdrop-blur-2xl drop-shadow-sm">
+        <div className="col-span-1 bg-[#FBF3E4] w-[90vw]  md:w-[600px] flex justify-center h-full relative backdrop-blur-2xl drop-shadow-sm">
           <div className=" absolute top-0 right-0 bg-[#154212] opacity-5 w-[100px] h-[100px]"></div>
 
           <form action="" onSubmit={handleSubmit}>
@@ -354,7 +355,7 @@ const RegistrationForm = () => {
             <div className="flex flex-col mx-6 gap-4">
               <label
                 htmlFor=""
-                className="man3-rope text-[#42493E] text-md mt-3"
+                className="man3-rope text-[#42493E] mt-12 text-md"
               >
                 Preferred Title
               </label>
@@ -411,6 +412,7 @@ const RegistrationForm = () => {
             </div>
           </form>
         </div>
+      </div>
       </div>
     </>
   );

@@ -8,6 +8,7 @@ const PizzaOrderForm = () => {
   const [toppings, setToppings] = useState([]);
   const [Extras, setExtras] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const isFormValid = size && crust;
   const handleChange = (e) => {
     e.preventDefault();
   };
@@ -63,7 +64,7 @@ const PizzaOrderForm = () => {
     extrasPrice;
   return (
     <>
-      <div className="text-[#154212] sticky z-50 top-0 font-bold tracking-widest flex items-center justify-between p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
+      <div className="text-[#154212]  sticky z-50 top-0 font-bold tracking-widest flex items-center justify-between p-5 text-4xl bg-[#FFF8EF]  backdrop-blur-2xl drop-shadow-sm">
         <div
           onClick={() => Navigate("/")}
           className="flex justify-start hover:scale-[112%] transition-all duration-300 "
@@ -89,11 +90,11 @@ const PizzaOrderForm = () => {
         </div>
       </div>
       <form action="" onChange={handleChange}>
-        <div>
+        <div className=" relative">
           <div className="mx-12 mt-6 mb-6 noto2-serif text-2xl font-semibold text-[#1E1B13]">
             Choose Size
           </div>
-          <div className="flex flex-col xl:flex-row gap-8 items-center xl:items-start w-full overflow-hidden">
+          <div className=" flex flex-col xl:flex-row gap-8 items-center xl:items-start w-full ">
             <div className="flex-col flex mx-4 md:mx-12 items-center md:items-start w-full xl:w-2/3">
               <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-12">
                 <div
@@ -288,7 +289,7 @@ const PizzaOrderForm = () => {
                 </div>
               </div>
             </div>
-            <div className=" bg-[#FBF3E4] md:mx-2 drop-shadow-sm w-[95%] md:w-full max-w-[450px] mx-auto mb-10 xl:mb-0 h-[560px] border-2 border-[rgba(194,201,187,0.5)] rounded-xl">
+            <div className="stick  top-36 bg-[#FBF3E4] md:mx-2 drop-shadow-sm w-[95%] md:w-full max-w-[450px] mx-auto mb-10 xl:mb-0 h-[560px] border-2 border-[rgba(194,201,187,0.5)] rounded-xl">
               <div className="noto2-serif mt-4 font-bold  text-xl flex justify-center text-[#1E1B13]">
                 ORDER SUMMARY
               </div>
@@ -329,8 +330,10 @@ const PizzaOrderForm = () => {
                         </div>
                       </div>
                     )}
-                    <div className="w-[80%] items-center my-2 flex justify-center mx-auto h-[0.1px] bg-[#1e1b1362]"></div>
                     {cartTopping.length > 0 && (
+                      <>
+                                          <div className="w-[80%] items-center my-2 flex justify-center mx-auto h-[0.1px] bg-[#1e1b1362]"></div>
+
                       <div className="noto2-serif mx-2 text-sm text-[#1E1B13]">
                         {toppings.length > 0 && (
                           <div className="mx-4">
@@ -350,54 +353,61 @@ const PizzaOrderForm = () => {
                           </div>
                         )}
                       </div>
+                      </>
                     )}
-                    <div className="w-[80%] items-center my-2 flex justify-center mx-auto h-[0.1px] bg-[#1e1b1362]"></div>
 
                     {Object.keys(Extras).length > 0 && (
-                      <div className=" noto2-serif mx-2 text-xl text-[#1E1B13]">
-                        {Object.keys(Extras).length > 0 && (
-                          <div className="mx-4">
-                            {Object.keys(Extras).map((item) => (
-                              <div
-                                key={item}
-                                className="flex justify-between text-xl gap-8 my-1"
-                              >
-                                <div className="text-[#1E1B13] flex gap-2  sm:gap-5 justify-start items-center capitalize">
-                                  <div className="w-32 text-left">{item.replace("-", " ")}</div>
-                                  <div className="text-base bg-[#FBF3E4] drop-shadow-sm backdrop-blur-2xl p-1 px-3 rounded-xl flex gap-4 items-center select-none">
-                                    <span
-                                      className="cursor-pointer hover:scale-110 transition-transform font-medium px-1"
-                                      onClick={() =>
-                                        decreaseExtraQuantity(item)
-                                      }
-                                    >
-                                      -
-                                    </span>
-                                    <span className="font-medium text-sm">{Extras[item]}</span>
-                                    <span
-                                      className="cursor-pointer hover:scale-110 transition-transform font-medium px-1"
-                                      onClick={() =>
-                                        increaseExtraQuantity(item)
-                                      }
-                                    >
-                                      +
-                                    </span>
+                      <>
+                        <div className="w-[80%] items-center my-2 flex justify-center mx-auto h-[0.1px] bg-[#1e1b1362]"></div>
+
+                        <div className=" noto2-serif mx-2 text-xl text-[#1E1B13]">
+                          {Object.keys(Extras).length > 0 && (
+                            <div className="mx-4">
+                              {Object.keys(Extras).map((item) => (
+                                <div
+                                  key={item}
+                                  className="flex justify-between text-xl gap-8 my-1"
+                                >
+                                  <div className="text-[#1E1B13] flex gap-2  sm:gap-5 justify-start items-center capitalize">
+                                    <div className="w-32 text-left">
+                                      {item.replace("-", " ")}
+                                    </div>
+                                    <div className="text-base bg-[#FBF3E4] drop-shadow-sm backdrop-blur-2xl p-1 px-3 rounded-xl flex gap-4 items-center select-none">
+                                      <span
+                                        className="cursor-pointer hover:scale-110 transition-transform font-medium px-1"
+                                        onClick={() =>
+                                          decreaseExtraQuantity(item)
+                                        }
+                                      >
+                                        -
+                                      </span>
+                                      <span className="font-medium text-sm">
+                                        {Extras[item]}
+                                      </span>
+                                      <span
+                                        className="cursor-pointer hover:scale-110 transition-transform font-medium px-1"
+                                        onClick={() =>
+                                          increaseExtraQuantity(item)
+                                        }
+                                      >
+                                        +
+                                      </span>
+                                    </div>
+                                  </div>
+
+                                  <div className="text-[#AD302F] font-bold flex items-center">
+                                    $5
                                   </div>
                                 </div>
-
-                                <div className="text-[#AD302F] font-bold flex items-center">
-                                  $5
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </>
                     )}
                   </>
                 )}
               </div>
-              <div className="w-[90%] mt-8 flex justify-center mx-auto h-[0.1px] bg-[#1e1b1362]"></div>
               <div className="flex justify-between items-center  mt-4 mx-4 ">
                 <div className="noto2-serif font-bold text-lg text-[#1E1B13]">
                   Quantity
@@ -432,10 +442,17 @@ const PizzaOrderForm = () => {
               >
                 <button
                   type="submit"
-                  onClick={() => {
+                  onClick={(e) => {
+                    if (!size || !crust) {
+                      e.preventDefault();
+                      alert(
+                        "Please select pizza size and crust before checkout!",
+                      );
+                      return;
+                    }
                     Navigate("/orderconfirm");
                   }}
-                  disabled={total === 0}
+                  disabled={!isFormValid}
                   className={`noto2-serif font-bold text-lg px-4 text-center w-full text-[#FBF3E4] ${total === 0 ? "cursor-not-allowed" : ""}`}
                 >
                   Check Out
